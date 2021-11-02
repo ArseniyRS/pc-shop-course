@@ -1,0 +1,19 @@
+.navBar{
+  border-bottom: 2px solid rgb(143,142,147);
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  &-container{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__item{
+    color: white;
+    text-decoration: none;
+    margin: 20px 0 20px 25px;
+  }
+}

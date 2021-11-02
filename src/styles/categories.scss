@@ -1,0 +1,28 @@
+@import "colors";
+
+.categories{
+  display: flex;
+  flex-direction: column;
+
+  padding: 50px 20px;
+
+  &__title{
+    color: $main_green;
+    padding-bottom: 30px;
+    border-bottom: 2px solid $border_color;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  &__item{
+    font-weight: 700;
+    padding: 20px 0;
+    border-bottom: 2px solid $border_color;
+    cursor: pointer;
+
+    &:hover{
+      color: #535353;
+      border-bottom: 2px solid $border_hover_color;
+    }
+  }
+}
