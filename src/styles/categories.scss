@@ -3,8 +3,9 @@
 .categories{
   display: flex;
   flex-direction: column;
-
+  background: $second_white;
   padding: 50px 20px;
+  width: 25%;
 
   &__title{
     color: $main_green;
@@ -20,8 +21,12 @@
     border-bottom: 2px solid $border_color;
     cursor: pointer;
 
+    &_active{
+      color: $main_green;
+    }
+
     &:hover{
-      color: #535353;
+      color: $main_green;
       border-bottom: 2px solid $border_hover_color;
     }
   }
