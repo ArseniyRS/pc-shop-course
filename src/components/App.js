@@ -6,6 +6,7 @@ import Slider from "./Slider/Slider";
 import Categories from "./Categories/Categories";
 import Products from "./Products/Products";
 import ProductItemDetail from "./Products/ProductItemDetail";
+import Breadcrumbs from "./Breadcrumbs/Breadcrumbs";
 
 function App() {
     return (

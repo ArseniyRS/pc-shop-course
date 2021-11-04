@@ -10,7 +10,7 @@ const Categories = () => {
         {id: 3, name: 'CPU'},
         {id: 4, name: 'GPU'},
         {id: 5, name: 'RAM'},
-        {id: 6, name: 'HDD/SSD'},
+        {id: 6, name: 'HDD|SSD'},
     ])
 
     return (
