@@ -11,7 +11,7 @@ const CategoriesItem = ({id, name, ...props}) => {
     }, [props.location.pathname])
     return (
         <div className={`categories__item ${active ? 'categories__item_active' : ''}`}
-             onClick={() => props.history.push(`/${name.toLowerCase()}`)}>
+             onClick={() => props.history.push(`/category/${id}`)}>
             {name}
         </div>
     );

@@ -1,0 +1,110 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Mobile"
+    },
+    {
+      "id": 2,
+      "name": "Keyboard"
+    },
+    {
+      "id": 3,
+      "name": "Watch"
+    },
+    {
+      "id": 4,
+      "name": "Notebooks"
+    },
+    {
+      "id": 5,
+      "name": "Tablets"
+    },
+    {
+      "id": 6,
+      "name": "Headphones"
+    },
+    {
+      "id": 7,
+      "name": "Desktop"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "categoryId": 4,
+      "number": "84720947329",
+      "name": "13-inch MacBook Air",
+      "price": 999,
+      "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000",
+      "specs": [
+        "Apple M1 chip with 8‑core CPU, 7‑core GPU, and 16‑core Neural Engine",
+        "8GB unified memory",
+        "256GB SSD storage",
+        "Retina display with True Tone",
+        "Magic Keyboard",
+        "Touch ID",
+        "Force Touch trackpad",
+        "Two Thunderbolt / USB 4 ports"
+      ],
+      "desc": "Every Mac comes with a one-year limited warranty and up to 90 days of complimentary technical support. AppleCare+ for Mac extends your coverage from your AppleCare+ purchase date and adds up to two incidents of accidental damage protection every 12 months, each subject to a service fee of $99 for screen damage or external enclosure damage, or $299 for other damage, plus applicable tax. In addition, you’ll get 24/7 priority access to Apple experts via chat or phone. For complete details, see the terms."
+    },
+    {
+      "id": 2,
+      "categoryId": 4,
+      "number": "84132947329",
+      "name": "MacBook Pro",
+      "price": 2499,
+      "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16-spacegray-select-202110?wid=452&hei=420&fmt=jpeg&qlt=95&.v=1632788574000",
+      "specs": [
+        "Apple M1 chip with 16‑core CPU, 10‑core GPU, and 16‑core Neural Engine",
+        "16GB unified memory",
+        "512GB SSD storage",
+        "16-inch Liquid Retina XDR display",
+        "Three Thunderbolt 4 ports, HDMI port, SDXC card slot, MagSafe 3 port",
+        "Magic Keyboard with Touch ID",
+        "Force Touch trackpad",
+        "140W USB-C Power Adapter"
+      ],
+      "desc": "Every Mac comes with a one-year limited warranty and up to 90 days of complimentary technical support. AppleCare+ for Mac extends your coverage from your AppleCare+ purchase date and adds up to two incidents of accidental damage protection every 12 months, each subject to a service fee of $99 for screen damage or external enclosure damage, or $299 for other damage, plus applicable tax. In addition, you’ll get 24/7 priority access to Apple experts via chat or phone. For complete details, see the terms."
+    },
+    {
+      "id": 3,
+      "categoryId": 4,
+      "number": "84720947329",
+      "name": "13-inch MacBook Air",
+      "price": 999,
+      "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000",
+      "specs": [
+        "Apple M1 chip with 8‑core CPU, 7‑core GPU, and 16‑core Neural Engine",
+        "8GB unified memory",
+        "256GB SSD storage",
+        "Retina display with True Tone",
+        "Magic Keyboard",
+        "Touch ID",
+        "Force Touch trackpad",
+        "Two Thunderbolt / USB 4 ports"
+      ],
+      "desc": "Every Mac comes with a one-year limited warranty and up to 90 days of complimentary technical support. AppleCare+ for Mac extends your coverage from your AppleCare+ purchase date and adds up to two incidents of accidental damage protection every 12 months, each subject to a service fee of $99 for screen damage or external enclosure damage, or $299 for other damage, plus applicable tax. In addition, you’ll get 24/7 priority access to Apple experts via chat or phone. For complete details, see the terms."
+    },
+    {
+      "id": 4,
+      "categoryId": 4,
+      "number": "84132947329",
+      "name": "MacBook Pro",
+      "price": 2499,
+      "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16-spacegray-select-202110?wid=452&hei=420&fmt=jpeg&qlt=95&.v=1632788574000",
+      "specs": [
+        "Apple M1 chip with 16‑core CPU, 10‑core GPU, and 16‑core Neural Engine",
+        "16GB unified memory",
+        "512GB SSD storage",
+        "16-inch Liquid Retina XDR display",
+        "Three Thunderbolt 4 ports, HDMI port, SDXC card slot, MagSafe 3 port",
+        "Magic Keyboard with Touch ID",
+        "Force Touch trackpad",
+        "140W USB-C Power Adapter"
+      ],
+      "desc": "Every Mac comes with a one-year limited warranty and up to 90 days of complimentary technical support. AppleCare+ for Mac extends your coverage from your AppleCare+ purchase date and adds up to two incidents of accidental damage protection every 12 months, each subject to a service fee of $99 for screen damage or external enclosure damage, or $299 for other damage, plus applicable tax. In addition, you’ll get 24/7 priority access to Apple experts via chat or phone. For complete details, see the terms."
+    }
+  ]
+}
