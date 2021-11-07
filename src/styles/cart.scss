@@ -1,0 +1,36 @@
+@import "colors";
+.cart{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+   &__title{
+       text-align: center;
+       font-weight: 3em;
+       padding: 40px 0;
+       border-bottom: 2px solid $border_color;
+   }
+    &-item{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 10px 25px;
+        border-bottom: 2px solid $border_color;
+        justify-content: flex-start;
+       
+        &__img{
+            width: 100px;
+            height: 100px;
+        }
+        &__name{
+            margin-left: 30px;
+        }
+
+        &__price{
+            text-align: end;
+            flex-shrink: 0;
+            flex-grow: 1;
+            font-weight: bold;
+        
+        }
+    }
+}

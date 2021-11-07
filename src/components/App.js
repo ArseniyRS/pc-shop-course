@@ -9,6 +9,7 @@ import ProductItemDetail from "./Products/ProductItemDetail";
 import Breadcrumbs from "./Breadcrumbs/Breadcrumbs";
 import {Route, Switch} from "react-router-dom";
 import {getCategoriesReq, getProductsReq} from "../api";
+import Cart from "./Cart/Cart";
 
 function App() {
     const [products, setProducts] = useState([])
@@ -43,6 +44,12 @@ function App() {
                     </Route>
                     <Route path={'/product/:number'} exact>
                         <ProductItemDetail products={products}/>
+                    </Route>
+                    <Route path="/cart" exact>
+                        <Cart />
+                    </Route>
+                    <Route path="/favorite" exact>
+                        
                     </Route>
                 </Switch>
 

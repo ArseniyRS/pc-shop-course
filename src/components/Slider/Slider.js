@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../styles/slider.scss'
-import {Button} from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
-import {withRouter} from "react-router-dom";
-import {getRouteItems} from "../../utils/getRouteItems";
+import { Link, withRouter } from "react-router-dom";
+import { getRouteItems } from "../../utils/getRouteItems";
 import Carousel from 'react-bootstrap/Carousel'
 
 const Slider = (props) => {
@@ -34,31 +34,38 @@ const Slider = (props) => {
     useEffect(() => {
         const routes = getRouteItems(props.location.pathname)
         if (routes.length) {
-            setTitle(routes[routes.length-1])
+            setTitle(routes[routes.length - 1])
             setIsSlider(false)
         }
         else
             setIsSlider(true)
     }, [props.location.pathname])
     return (
-        isSlider ?
-        <Carousel  controls={false} interval={3000} slide={true} touch={true}>
-            {slides.map(slide => (
-                <Carousel.Item className={'slider'} style={{background: `${slide.img ? `url(${slide.img})`: 'gray'}`}}>
-                    <Carousel.Caption className={'slider-info'}>
-                        <h1 className={'slider__title'}>{slide.title}</h1>
-                        <Button className={'slider__btn'} variant="success">Get started</Button>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            ))}
-        </Carousel>
-                :
-        <div className={'slider'} style={{height: '55vh'}}>
-            <div className="slider-info">
-                <h1 className={'slider__title'}>{title.toUpperCase()}</h1>
-                    <Breadcrumbs/>
+        <>
+            <div className="slider-btn-container">
+                <Link to={'/favorite'} className={'slider-btn'}><i className="fas fa-heart" /></Link>
+                <Link to={'/cart'} className={'slider-btn'}><i className="fas fa-shopping-cart" /></Link>
             </div>
-        </div>
+            {isSlider ?
+                <Carousel controls={false} interval={3000} slide={true} touch={true}>
+                    {slides.map(slide => (
+                        <Carousel.Item className={'slider'} style={{ background: `${slide.img ? `url(${slide.img})` : 'gray'}` }}>
+                            <Carousel.Caption className={'slider-info'}>
+                                <h1 className={'slider__title'}>{slide.title}</h1>
+                                <Button className={'slider__btn'} variant="success">Get started</Button>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                    ))}
+                </Carousel>
+                :
+                <div className={'slider'} style={{ height: '55vh' }}>
+                    <div className="slider-info">
+                        <h1 className={'slider__title'}>{title.toUpperCase()}</h1>
+                        <Breadcrumbs />
+                    </div>
+                </div>
+            }
+        </>
     );
 };
 

@@ -13,13 +13,14 @@ const Products = ({title, products, setProducts, ...props}) => {
         if(props.match.params.categoryId){
             getProductsByCategory(props.match.params.categoryId)
         }
+
     },[props.location.pathname])
 
     return (
         <div className={'products'}>
             <h2 className={'products__title'}>{title}</h2>
             <div className="products-container">
-                {products.map(product => <ProductItem {...product}/>)}
+                {products.map(product => <ProductItem key={product.id} {...product}/>)}
 
             </div>
 
