@@ -1,36 +1,73 @@
 @import "colors";
-.cart{
+.cart {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  &__title {
+    text-align: center;
+    padding: 40px 0;
+    border-bottom: 2px solid $border_color;
+  }
+  &__total {
+    font-weight: bold;
+    font-size: 1.3em;
+    align-self: flex-end;
+    margin-right: 5%;
+    margin-top: 30px;
+  }
+  &-item {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     width: 100%;
-   &__title{
-       text-align: center;
-       font-weight: 3em;
-       padding: 40px 0;
-       border-bottom: 2px solid $border_color;
-   }
-    &-item{
-        display: flex;
-        align-items: center;
-        width: 100%;
-        padding: 10px 25px;
-        border-bottom: 2px solid $border_color;
-        justify-content: flex-start;
-       
-        &__img{
-            width: 100px;
-            height: 100px;
-        }
-        &__name{
-            margin-left: 30px;
-        }
+    padding: 10px 25px;
+    border-bottom: 2px solid $border_color;
+    justify-content: flex-start;
 
-        &__price{
-            text-align: end;
-            flex-shrink: 0;
-            flex-grow: 1;
-            font-weight: bold;
-        
-        }
+    &__img {
+      width: 100px;
+      height: 100px;
     }
+    &__name {
+      margin-left: 30px;
+    }
+
+    &__price {
+      text-align: end;
+      flex-shrink: 0;
+      flex-grow: 1;
+      font-weight: bold;
+    }
+
+    &__options {
+      text-align: end;
+      flex-shrink: 0;
+      flex-grow: 1;
+
+      button {
+        background-color: $main_green;
+        color: white;
+        font-weight: bold;
+        padding: 5px 15px;
+        border: none;
+      }
+      
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+      input {
+        width: 50px;
+        border: none;
+        border: 2px solid $border_color;
+        padding: 5px;
+        margin: 0 5px;
+      }
+    }
+  }
 }
