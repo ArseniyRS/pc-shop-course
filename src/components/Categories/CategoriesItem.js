@@ -4,7 +4,7 @@ import {withRouter} from "react-router-dom";
 const CategoriesItem = ({id, name, ...props}) => {
     const [active, setActive] = useState(false)
     useEffect(() => {
-        if (props.location.pathname.endsWith(name.toLowerCase()))
+        if (props.location.pathname.endsWith(id))
             setActive(true)
         else
             setActive(false)

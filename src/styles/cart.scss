@@ -15,6 +15,17 @@
     margin-right: 5%;
     margin-top: 30px;
   }
+
+  &__empty{
+    color: $border_color;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 3em;
+
+    i{
+      font-size: 2em;
+    }
+  }
   &-item {
     display: flex;
     align-items: center;
@@ -38,6 +49,17 @@
       font-weight: bold;
     }
 
+    &__deleteBtn{
+      border: none;
+      padding: 5px;
+      background: none;
+      font-size: 1.5em;
+      margin-left: 10px;
+
+      &:hover{
+        transform: scale(1.1);
+      }
+    }
     &__options {
       text-align: end;
       flex-shrink: 0;
