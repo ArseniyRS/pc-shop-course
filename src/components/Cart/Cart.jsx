@@ -3,13 +3,28 @@ import CartItem from "./CartItem";
 import "../../styles/cart.scss";
 
 const Cart = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState( JSON.parse(localStorage.getItem('cart')) || [] );
   const [total, setTotal] = useState(0);
   const [forRerender, setForRerender] = useState(false);
 
-  useEffect(() => {
-    setProducts(JSON.parse(localStorage.getItem("cart")));
-  }, [forRerender]);
+  const handleChangeProductCount = (id, count) => {
+    
+    console.log(count)
+      const copyProducts = [...products]
+      const idx = copyProducts.findIndex(product => product.id === id)
+      copyProducts[idx].count = count
+      setProducts(copyProducts)
+  }
+  console.log(total)
+  useEffect(()=>{
+    const copyProducts = [...products]
+    if(copyProducts.length){
+      setTotal(copyProducts.reduce((prev, cur) =>prev + +cur.count * +cur.price , 0))
+      localStorage.setItem('cart',  JSON.stringify(copyProducts))
+    }
+  },[products])
+  
+
   return (
     <div className="cart">
       <h2 className="cart__title">Cart Items</h2>
@@ -19,8 +34,7 @@ const Cart = () => {
             <CartItem
               key={product.id}
               reRenderCart={setForRerender}
-              getTotalPrice={setTotal}
-              total={total}
+              handleChangeProductCount={handleChangeProductCount}
               {...product}
             />
           ))}

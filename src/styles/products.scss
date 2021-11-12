@@ -98,8 +98,11 @@
       border: 2px solid $border_color;
       background: $second_white;
     }
-    .cart-btn-active {
+    .cart-btn-active, .fav-btn-active  {
       background: orange !important;
+      i{
+      color: #fff!important;
+      }
     }
     &__name {
       max-width: 100px;

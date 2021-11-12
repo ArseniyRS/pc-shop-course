@@ -1,35 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom'
 
-const ProductItem = ({ id, name, price, number, img }) => {
+const ProductItem = ({ id, name, price, number, img, doReRender }) => {
     const [isAddedInCart, setIsAddedInCart] = useState(false)
+    const [isAddedToFav, setIsAddedToFav] = useState(false)
 
-    const addToCard = () => {
-        const productsInCart = JSON.parse(localStorage.getItem('cart'))
+    const addToCardOrFav = (value) => {
+        const productsInCart = JSON.parse(localStorage.getItem(value))
         if (productsInCart) {
             const found = productsInCart.find(product => product.id === id)
             if (found) {
-                localStorage.setItem('cart', JSON.stringify(productsInCart.filter(product => product.id !== id)))
-                setIsAddedInCart(false)
+                localStorage.setItem(value, JSON.stringify(productsInCart.filter(product => product.id !== id)))
+                doReRender(render => !render)
+                return value === 'cart' ? setIsAddedInCart(false) : setIsAddedToFav(false)
             } else {
-                localStorage.setItem('cart', JSON.stringify([...productsInCart, { name, price, number, img, id }]))
-                setIsAddedInCart(true)
+                localStorage.setItem(value, JSON.stringify([...productsInCart, { name, price, number, img, id, count: 1 }]))
+                return value === 'cart' ? setIsAddedInCart(true) : setIsAddedToFav(true)
             }
-            return
         } else {
-            localStorage.setItem('cart', JSON.stringify([{ name, price, number, img, id }]))
+            localStorage.setItem(value, JSON.stringify([{ name, price, number, img, id, count: 1 }]))
+        }
+    }
+    const changeStateBtnActive = (value) =>{
+        const productsForSave = JSON.parse(localStorage.getItem(value))
+        if (productsForSave) {
+            const found = productsForSave.find(product => product.id === id)
+            if (found)
+                return value === 'cart' ? setIsAddedInCart(true) : setIsAddedToFav(true)
+            else
+                return value === 'cart' ? setIsAddedInCart(false) : setIsAddedToFav(false)
         }
     }
 
     useEffect(() => {
-        const productsInCart = JSON.parse(localStorage.getItem('cart'))
-        if (productsInCart) {
-            const found = productsInCart.find(product => product.id === id)
-            if (found)
-                setIsAddedInCart(true)
-            else
-                setIsAddedInCart(false)
-        }
+        changeStateBtnActive('cart')
+        changeStateBtnActive('fav')
     }, [])
 
 
@@ -43,8 +48,8 @@ const ProductItem = ({ id, name, price, number, img }) => {
                 {isAddedInCart && <span className="products-item__isAddedToCart"><i className="fas fa-shopping-cart" /></span>}
             </div>
             <div className="products-item__btns">
-                <button className={'products-item__btn fav-btn '}><i className="fas fa-heart" /></button>
-                <button className={`products-item__btn cart-btn ${isAddedInCart ? 'cart-btn-active' : ''}`} onClick={addToCard}><i className="fas fa-shopping-cart" /></button>
+                <button className={`products-item__btn fav-btn ${isAddedToFav ? 'fav-btn-active' : ''}`} onClick={()=>addToCardOrFav('fav')}><i className="fas fa-heart" /></button>
+                <button className={`products-item__btn cart-btn ${isAddedInCart ? 'cart-btn-active' : ''}`} onClick={()=>addToCardOrFav('cart')}><i className="fas fa-shopping-cart" /></button>
             </div>
         </div>
     );
