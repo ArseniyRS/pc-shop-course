@@ -1,16 +1,20 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import Slider from "../components/Slider/Slider";
 import Categories from "../components/Categories/Categories";
 import Products from "../components/Products/Products";
 import ProductItemDetail from "../components/Products/ProductItemDetail";
-import { Route, Switch, withRouter } from "react-router-dom";
+import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import { getCategoriesReq, getProductsReq } from "../api";
 import Cart from "../components/Cart/Cart";
+import { AuthContext } from "../context/AuthContext";
 
 const MainPage = (props) => {
   const [products, setProducts] = useState([]);
   const [reRenderProducts, setReRenderProducts] = useState(false);
   const [categories, setCategories] = useState([]);
+
+  const {isAuthorized} = useContext(AuthContext)
+  
   const getProducts = async () => {
     const { data } = await getProductsReq();
     setProducts(data);
@@ -57,15 +61,16 @@ const MainPage = (props) => {
             <ProductItemDetail products={products} />
           </Route>
           <Route path="/cart" exact>
-            <Cart />
+           {isAuthorized ? <Cart /> : <Redirect to="/login" />}
           </Route>
           <Route path="/favorite" exact>
+          {isAuthorized ? 
             <Products
               setProducts={setProducts}
               doReRender={setReRenderProducts}
               products={products}
               title={"Favourite"}
-            />
+            /> : <Redirect to="/login" />}
           </Route>
         </Switch>
       </div>

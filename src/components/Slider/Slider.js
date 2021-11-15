@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import '../../styles/slider.scss'
 import { Button } from "react-bootstrap";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import { Link, withRouter } from "react-router-dom";
 import { getRouteItems } from "../../utils/getRouteItems";
 import Carousel from 'react-bootstrap/Carousel'
+import { CountSavedItems } from '../../context/CountSavedItems';
 
 const Slider = (props) => {
     const [slides, setSlides] = useState([
@@ -31,6 +32,7 @@ const Slider = (props) => {
     ])
     const [isSlider, setIsSlider] = useState(true)
     const [title, setTitle] = useState('')
+    const {countFav, countCart} = useContext(CountSavedItems)
     useEffect(() => {
         const routes = getRouteItems(props.location.pathname)
         if (routes.length) {
@@ -43,8 +45,8 @@ const Slider = (props) => {
     return (
         <>
             <div className="slider-btn-container">
-                <Link to={'/favorite'} className={'slider-btn'}><i className="fas fa-heart" /></Link>
-                <Link to={'/cart'} className={'slider-btn'}><i className="fas fa-shopping-cart" /></Link>
+                <Link to={'/favorite'} className={'slider-btn'}><i className="fas fa-heart" /><span>{countFav}</span></Link>
+                <Link to={'/cart'} className={'slider-btn'}><i className="fas fa-shopping-cart" /><span>{countCart}</span></Link>
             </div>
             {isSlider ?
                 <Carousel controls={false} interval={3000} slide={true} touch={true}>
